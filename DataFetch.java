@@ -1,5 +1,5 @@
 
  interface DataFetch {
 
-	public double[][] dataFetch();
+	public void dataFetch();
 }
