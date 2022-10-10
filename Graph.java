@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Graph {
 	   private double[][] G;
-	  
+	   private String res="";
 	   public void Graph(int val) {
 		   G=new double[val][val];
 	   }
@@ -16,7 +16,7 @@ public class Graph {
 
 	// Function to find the minimum
 	// cost path for all the paths
-	public String  CaluculateTSP(int[][] tsp)
+	public String  CaluculateTSP()
 	{
 		int sum = 0;
 		int counter = 0;
@@ -29,15 +29,15 @@ public class Graph {
 		// Starting from the 0th indexed
 		// city i.e., the first city
 		visitedRouteList.add(0);
-		int[] route = new int[tsp.length];
+		int[] route = new int[this.G.length];
 
 		// Traverse the adjacency
-		// matrix tsp[][]
-		while (i < tsp.length
-			&& j < tsp[i].length) {
+		// matrix this.G[][]
+		while (i < this.G.length
+			&& j < this.G[i].length) {
 
 			// Corner of the Matrix
-			if (counter >= tsp[i].length - 1) {
+			if (counter >= this.G[i].length - 1) {
 				break;
 			}
 
@@ -46,8 +46,8 @@ public class Graph {
 			// update the cost
 			if (j != i
 				&& !(visitedRouteList.contains(j))) {
-				if (tsp[i][j] < min) {
-					min = tsp[i][j];
+				if (this.G[i][j] < min) {
+					min = this.G[i][j];
 					route[counter] = j + 1;
 				}
 			}
@@ -55,7 +55,7 @@ public class Graph {
 
 			// Check all paths from the
 			// ith indexed city
-			if (j == tsp[i].length) {
+			if (j == this.G[i].length) {
 				sum += min;
 				
 				
@@ -73,10 +73,10 @@ public class Graph {
 		// from city which was last visited
 		i = route[counter - 1] - 1;
 
-		for (j = 0; j < tsp.length; j++) {
+		for (j = 0; j < this.G.length; j++) {
 
-			if ((i != j) && tsp[i][j] < min) {
-				min = tsp[i][j];
+			if ((i != j) && this.G[i][j] < min) {
+				min = this.G[i][j];
 				
 				route[counter] = j + 1;
 				Results.add("City"+i+" - City"+j+" "+min);
@@ -90,12 +90,16 @@ public class Graph {
 		Results.add("Minimum Cost is : "+sum);
 		//System.out.print("Minimum Cost is : ");
 		//System.out.println(sum);
-		String res="";
+		//String res="";
 		for( i=0;i<Results.size();i++)
 		{
 			res+=Results.get(i)+"\n";
 		}
 		return res;
+	}
+	public String getTSPString()
+	{
+		return this.res;
 	}
 
 
