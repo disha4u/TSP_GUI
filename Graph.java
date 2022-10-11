@@ -5,7 +5,7 @@ import java.util.*;
 public class Graph {
 	   private double[][] G;
 	   private String res="";
-	   public void Graph(int val) {
+	   Graph(int val) {
 		   G=new double[val][val];
 	   }
 	   public void addedge(int i, int j,double val) {
@@ -21,7 +21,7 @@ public class Graph {
 		int sum = 0;
 		int counter = 0;
 		int j = 0, i = 0;
-		int min = Integer.MAX_VALUE;
+		double min=Double.MAX_VALUE;
 		List<Integer> visitedRouteList
 			= new ArrayList<>();
 		List<String> Results=new ArrayList<String>();
@@ -104,4 +104,4 @@ public class Graph {
 
 
 }
->>>>>>> 9e5864d6bbc42517de9bb7ae5565680daf2c3f82
+
