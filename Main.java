@@ -9,5 +9,8 @@ public class Main {
 	   Graph g=obj.data_parse(cities);
 	   String path=g.CaluculateTSP();
 	   System.out.println(path);
+	   GUI gui=new GUI();
+	   gui.PlotPoints(cities);
+	   
    }
 }

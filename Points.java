@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 import java.util.Random;
 import java.awt.geom.*;
 import javax.swing.JFrame;
@@ -10,8 +11,8 @@ import javax.swing.JPanel;
 
 public class Points extends JPanel {
 
-	City [] cities;
-	Points(City[] cities)
+	ArrayList<City> cities;
+	Points(ArrayList<City> cities)
 	{
 		this.cities=cities;
 	}
@@ -29,14 +30,14 @@ public class Points extends JPanel {
 
     g2d.setColor(Color.red);
 
-    for (int i = 0; i < cities.length; i++) {
+    for (int i = 0; i < cities.size(); i++) {
 	
       Dimension size = getSize();
       int w = size.width ;
       int h = size.height;
 	  
-      double x = (cities[i].getx())%w;//Math.abs(r.nextInt()) % w;
-      double y = (cities[i].gety())%h;//Math.abs(r.nextInt()) % h;
+      double x = (cities.get(i).getx())%w;//Math.abs(r.nextInt()) % w;
+      double y = (cities.get(i).gety())%h;//Math.abs(r.nextInt()) % h;
 	  g2d.fill(new Ellipse2D.Double(x, y, 4, 4));
       //g2d.drawLine(x, y, x+100, y+100);
     }
