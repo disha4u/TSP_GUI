@@ -38,7 +38,7 @@ public class Points extends JPanel {
 	  
       double x = (cities.get(i).getx())%w;//Math.abs(r.nextInt()) % w;
       double y = (cities.get(i).gety())%h;//Math.abs(r.nextInt()) % h;
-	  g2d.fill(new Ellipse2D.Double(x, y, 4, 4));
+	  g2d.fill(new Ellipse2D.Double(x, y, 6, 6));
       //g2d.drawLine(x, y, x+100, y+100);
     }
   }
