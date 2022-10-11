@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Graph {
 	   private double[][] G;
-	   private String res="";
+	   private String Path="";
 	   Graph(int val) {
 		   G=new double[val][val];
 	   }
@@ -93,13 +93,13 @@ public class Graph {
 		//String res="";
 		for( i=0;i<Results.size();i++)
 		{
-			res+=Results.get(i)+"\n";
+			path+=Results.get(i)+"\n";
 		}
-		return res;
+		return path;
 	}
 	public String getTSPString()
 	{
-		return this.res;
+		return this.path;
 	}
 
 
