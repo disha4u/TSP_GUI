@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 public class Points extends JPanel {
 
 	City [] cities;
-	Point(City[] cities)
+	Points(City[] cities)
 	{
 		this.cities=cities;
 	}
@@ -29,14 +29,14 @@ public class Points extends JPanel {
 
     g2d.setColor(Color.red);
 
-    for (int i = 0; i < cords.length; i++) {
+    for (int i = 0; i < cities.length; i++) {
 	
       Dimension size = getSize();
       int w = size.width ;
       int h = size.height;
 	  
-      int x = cities[i].xcoordinate)%w;//Math.abs(r.nextInt()) % w;
-      int y = ((int) cords[i].ycoordinate)%h;//Math.abs(r.nextInt()) % h;
+      double x = (cities[i].getx())%w;//Math.abs(r.nextInt()) % w;
+      double y = (cities[i].gety())%h;//Math.abs(r.nextInt()) % h;
 	  g2d.fill(new Ellipse2D.Double(x, y, 4, 4));
       //g2d.drawLine(x, y, x+100, y+100);
     }

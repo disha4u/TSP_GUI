@@ -93,13 +93,13 @@ public class Graph {
 		//String res="";
 		for( i=0;i<Results.size();i++)
 		{
-			path+=Results.get(i)+"\n";
+			Path+=Results.get(i)+"\n";
 		}
-		return path;
+		return Path;
 	}
 	public String getTSPString()
 	{
-		return this.path;
+		return this.Path;
 	}
 
 
