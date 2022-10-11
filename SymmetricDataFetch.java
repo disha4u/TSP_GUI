@@ -34,16 +34,26 @@ public class SymmetricDataFetch  implements DataFetch{
 		Pattern r = Pattern.compile(pattern);
 		String dim_s=data.get(4);
 		Matcher m = r.matcher(dim_s);
+		
 		int num_nodes=0;
 		if (m.find())
 		    num_nodes=Integer.parseInt(m.group(0));
-        //System.out.println(num_nodes);	
+        
 		double[][] d=new double[num_nodes][2];
 		Graph obj=new Graph(num_nodes);
-		for(int i=0;i<7+num_nodes;i++) {
-			
+		
+		for(int i=0;i<num_nodes;i++) {
+			String[] s=data.get(i+7).split(" ",3);
+			d[i][0]=Double.parseDouble(s[1]);
+			d[i][1]=Double.parseDouble(s[2]);
 		}
 		
+		for(int i=0;i<num_nodes;i++) {
+			for(int j=0;j<num_nodes;j++) {
+				double dist=calc_dist(d[i][0],d[i][1],d[j][0],d[j][1]);
+				obj.addedge(i, j, dist);
+			}
+		}
 		
 		
 	}
