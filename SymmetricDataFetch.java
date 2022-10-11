@@ -15,7 +15,7 @@ public class SymmetricDataFetch  implements DataFetch{
 		
 		
 		try {
-		      File myObj = new File("Data/Symmetric_Data/wi29.tsp");
+		      File myObj = new File("Data/Symmetric_Data/it16862.tsp");
 		      Scanner myReader = new Scanner(myObj);
 		      while (myReader.hasNextLine()) {
 		        String line = myReader.nextLine();

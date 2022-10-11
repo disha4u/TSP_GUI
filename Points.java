@@ -1,14 +1,15 @@
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.util.ArrayList;
 import java.util.Random;
 import java.awt.geom.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+import java.math.*;
 public class Points extends JPanel {
 
 	ArrayList<City> cities;
@@ -16,41 +17,43 @@ public class Points extends JPanel {
 	{
 		this.cities=cities;
 	}
- /*  double[][] cords =   {{9983.3333,98550.0000},
-						{10000.0000,98533.3333},
-						{10000.0000,98550.0000},
-						{10000.0000,98566.6667},
-						{10016.6667,98516.6667},
-						{10033.3333,98533.3333}};
-*/
+ 
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
 
     Graphics2D g2d = (Graphics2D) g;
 
     g2d.setColor(Color.red);
-
+    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);  
+    Dimension size = getSize();
+ 
+    double xmax=-1;
+    double ymax=-1;
+    double xmin=Double.MAX_VALUE;
+    double ymin=Double.MAX_VALUE;
+    for (int i = 0; i < cities.size(); i++) {
+    	 if(xmax<(cities.get(i).getx()))
+    		 xmax=(cities.get(i).getx());
+    	 if(ymax<(cities.get(i).gety()))
+    		 ymax=(cities.get(i).gety());
+    	 if(ymin>(cities.get(i).gety()))
+    		 ymin=cities.get(i).gety();
+    	if(xmin>cities.get(i).getx())
+    		xmin=cities.get(i).getx();
+    }
+    final int margin=60;
+    
     for (int i = 0; i < cities.size(); i++) {
 	
-      Dimension size = getSize();
-      int w = size.width ;
-      int h = size.height;
-	  
-      double x = (cities.get(i).getx())%w;//Math.abs(r.nextInt()) % w;
-      double y = (cities.get(i).gety())%h;//Math.abs(r.nextInt()) % h;
-	  g2d.fill(new Ellipse2D.Double(x, y, 6, 6));
-      //g2d.drawLine(x, y, x+100, y+100);
+      size = getSize();
+      double w = (size.width-margin)/(xmax-xmin) ;
+      double h = (size.height-margin)/(ymax-ymin);
+	  double scale=Math.min(w, h);
+      double x = (cities.get(i).getx()-margin-xmin)*scale;//Math.abs(r.nextInt()) % w;
+      double y = (cities.get(i).gety()-margin-ymin)*scale;//Math.abs(r.nextInt()) % h;
+      g2d.fill(new Ellipse2D.Double(x, y, 6, 6));
     }
   }
 
-/*
-  public static void main(String[] args) {
-    Points points = new Points();
-    JFrame frame = new JFrame("Points");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.add(points);
-    frame.setSize(250, 200);
-    frame.setLocationRelativeTo(null);
-    frame.setVisible(true);
-  }*/
+
 }
