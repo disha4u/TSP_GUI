@@ -29,7 +29,7 @@ public class SymmetricDataFetch  implements DataFetch{
 		//Implementation of Symmetric Data Fetch
 		
 	}
-	public Graph data_parse() {
+	public Graph data_parse(ArrayList<City> cities) {
 		String pattern = "[0-9]+";
 		Pattern r = Pattern.compile(pattern);
 		String dim_s=data.get(4);
@@ -43,9 +43,12 @@ public class SymmetricDataFetch  implements DataFetch{
 		Graph g=new Graph(num_nodes);
 		
 		for(int i=0;i<num_nodes;i++) {
+			
 			String[] s=data.get(i+7).split(" ",3);
 			d[i][0]=Double.parseDouble(s[1]);
 			d[i][1]=Double.parseDouble(s[2]);
+			City c=new City(d[i][0],d[i][1]);
+			cities.add(c);
 		}
 		
 		for(int i=0;i<num_nodes;i++) {
