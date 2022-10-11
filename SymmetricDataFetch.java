@@ -39,7 +39,7 @@ public class SymmetricDataFetch  implements DataFetch{
 		if (m.find())
 		    num_nodes=Integer.parseInt(m.group(0));
         
-		double[][] d=new double[num_nodes][2];
+		Double[][] d=new Double[num_nodes][2];
 		Graph g=new Graph(num_nodes);
 		
 		for(int i=0;i<num_nodes;i++) {

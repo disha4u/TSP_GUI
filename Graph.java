@@ -3,18 +3,13 @@ import java.util.*;
 
 
 public class Graph {
-	   LinkedList<LinkedList<Double>> G;
+	   private double[][] G;
 	   private String Path="";
 	   Graph(int val) {
-		   for(int i=0;i<val;i++) {
-			   LinkedList<Double> l=new LinkedList<Double>();
-			   for (int j=0;j<val;j++)
-				   l.add(0.0);
-			   G.add(l);
-		   }
+		   G=new double[val][val];
 	   }
-	   public void addedge(int i, int j,Double val) {
-		   G.get(i).set(j, val);
+	   public void addedge(int i, int j,double val) {
+		   G[i][j]=val;
 	   }
 	   
 
