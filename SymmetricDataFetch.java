@@ -29,7 +29,7 @@ public class SymmetricDataFetch  implements DataFetch{
 		//Implementation of Symmetric Data Fetch
 		
 	}
-	public void data_parse() {
+	public Graph data_parse() {
 		String pattern = "[0-9]+";
 		Pattern r = Pattern.compile(pattern);
 		String dim_s=data.get(4);
@@ -40,7 +40,7 @@ public class SymmetricDataFetch  implements DataFetch{
 		    num_nodes=Integer.parseInt(m.group(0));
         
 		double[][] d=new double[num_nodes][2];
-		Graph obj=new Graph(num_nodes);
+		Graph g=new Graph(num_nodes);
 		
 		for(int i=0;i<num_nodes;i++) {
 			String[] s=data.get(i+7).split(" ",3);
@@ -51,10 +51,10 @@ public class SymmetricDataFetch  implements DataFetch{
 		for(int i=0;i<num_nodes;i++) {
 			for(int j=0;j<num_nodes;j++) {
 				double dist=calc_dist(d[i][0],d[i][1],d[j][0],d[j][1]);
-				obj.addedge(i, j, dist);
+				g.addedge(i, j, dist);
 			}
 		}
-		
+		return g;
 		
 	}
 	public double calc_dist(double x1,double y1,double x2,double y2) {
