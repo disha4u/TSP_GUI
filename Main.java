@@ -7,8 +7,8 @@ public class Main {
 	   ArrayList<City> cities= new ArrayList<City>();
 	   obj.dataFetch();
 	   Graph g=obj.data_parse(cities);
-	   //String path=g.CaluculateTSP();
-	   //System.out.println(path);
+	   String path=g.CaluculateTSP();
+	   System.out.println(path);
 	   GUI gui=new GUI();
 	   gui.PlotPoints(cities);
 	   
