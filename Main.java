@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Main {
    public static void main(String[] args) {
 	   DataFetch df=new DataFetch();
-	   String fpath="Data/Symmetric_Data/wi29.tsp";
-	   Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-	   System.out.println("Enter File Path");
-	   fpath=myObj.nextLine();
+	   String fpath="Data/Asymmetric_Data/rbg017.2.tw.txt";
+	   //Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+	   //System.out.println("Enter File Path");
+	   //fpath=myObj.nextLine();
 	   
 	   ArrayList<String> data=df.dataFetch(fpath);
 	   if (fpath.contains("Symmetric")) {
@@ -21,7 +21,9 @@ public class Main {
 	   gui.PlotPoints(cities);
 	   }
 	   else {
-		   
+		   AsymmetricDataParse dp= new AsymmetricDataParse();
+		   Graph g=dp.data_parse(data);
+		   String path=g.CaluculateTSP();
 	   }
 	   
    }
