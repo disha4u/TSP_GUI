@@ -19,15 +19,19 @@ public class AsymmetricDataParse implements DataParse{
 		
 		Double val=0.0;
 		for(int i=0;i<num_nodes;i++) {
-			String[] s=data.get(i+num_nodes+8).split("   ",num_nodes);
-			for (int j=0;j<num_nodes;j++) {
-				System.out.println(s[j]);
-				//val=Double.parseDouble(s[j]);
-				//if (val<0) {
-				//	val=Double.MAX_VALUE;
-				//}
-				//g.addedge(i, j, val);
+			String s=data.get(i+num_nodes+8);
+			m=r.matcher(s);
+			int j=0;
+			while (m.find()) {
+				
+				val=Double.parseDouble(m.group());
+				if (val<0) {
+					val=Double.MAX_VALUE;
+				}
+				g.addedge(i, j, val);
+				j+=1;
 			}
+			
 			//System.out.printf("%.5f %.5f \n",d[i][0],d[i][1]);
 		}
 		
