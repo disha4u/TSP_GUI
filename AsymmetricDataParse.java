@@ -25,7 +25,7 @@ public class AsymmetricDataParse implements DataParse{
 			while (m.find()) {
 				
 				val=Double.parseDouble(m.group());
-				if (val<0) {
+				if (val<=0 && i!=j) {
 					val=Double.MAX_VALUE;
 				}
 				g.addedge(i, j, val);
