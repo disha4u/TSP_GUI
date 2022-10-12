@@ -1,5 +1,24 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
- interface DataFetch {
-
-	public void dataFetch();
+public class DataFetch{
+	
+	public ArrayList<String> dataFetch(String filePath){
+		ArrayList<String> data = new ArrayList<String>();
+		try {
+		      File myObj = new File(filePath);
+		      Scanner myReader = new Scanner(myObj);
+		      while (myReader.hasNextLine()) {
+		        String line = myReader.nextLine();
+		        data.add(line);
+		      }
+		      myReader.close();
+		    } catch (FileNotFoundException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
+		return data;
+	}
 }

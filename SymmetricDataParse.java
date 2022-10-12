@@ -6,50 +6,34 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
 
-public class SymmetricDataFetch  implements DataFetch{
+public class SymmetricDataParse implements DataParse{
 	
-	ArrayList<String> data = new ArrayList<String>();
 	
-	public void dataFetch()
-	{
-		
-		
-		try {
-		      File myObj = new File("Data/Symmetric_Data/it16862.tsp");
-		      Scanner myReader = new Scanner(myObj);
-		      while (myReader.hasNextLine()) {
-		        String line = myReader.nextLine();
-		        data.add(line);
-		      }
-		      myReader.close();
-		    } catch (FileNotFoundException e) {
-		      System.out.println("An error occurred.");
-		      e.printStackTrace();
-		    }
-		//Implementation of Symmetric Data Fetch
-		
-	}
-	public Graph data_parse(ArrayList<City> cities) {
+	Double[][] d;
+	int num_nodes=0;
+	
+	public Graph data_parse(ArrayList<String> data) {
 		String pattern = "[0-9]+";
 		Pattern r = Pattern.compile(pattern);
 		String dim_s=data.get(4);
 		Matcher m = r.matcher(dim_s);
 		
-		int num_nodes=0;
+		
 		if (m.find())
 		    num_nodes=Integer.parseInt(m.group(0));
         
-		Double[][] d=new Double[num_nodes][2];
-		Graph g=new Graph(num_nodes);
+		d=new Double[num_nodes][2];
+		
 		
 		for(int i=0;i<num_nodes;i++) {
 			
 			String[] s=data.get(i+7).split(" ",3);
 			d[i][0]=Double.parseDouble(s[1]);
 			d[i][1]=Double.parseDouble(s[2]);
-			City c=new City(d[i][0],d[i][1]);
-			cities.add(c);
+			//System.out.printf("%.5f %.5f \n",d[i][0],d[i][1]);
 		}
+		
+		Graph g=new Graph(num_nodes);
 		
 		for(int i=0;i<num_nodes;i++) {
 			for(int j=0;j<num_nodes;j++) {
@@ -60,6 +44,38 @@ public class SymmetricDataFetch  implements DataFetch{
 		return g;
 		
 	}
+	
+	public ArrayList<City> data_cities(ArrayList<String> data){
+		ArrayList<City> cities= new ArrayList<City>();
+		
+		String pattern = "[0-9]+";
+		Pattern r = Pattern.compile(pattern);
+		String dim_s=data.get(4);
+		Matcher m = r.matcher(dim_s);
+		
+		
+		if (m.find())
+		    num_nodes=Integer.parseInt(m.group(0));
+        
+		d=new Double[num_nodes][2];
+		
+		
+		for(int i=0;i<num_nodes;i++) {
+			
+			String[] s=data.get(i+7).split(" ",3);
+			d[i][0]=Double.parseDouble(s[1]);
+			d[i][1]=Double.parseDouble(s[2]);
+			//System.out.printf("%.5f %.5f \n",d[i][0],d[i][1]);
+		
+			
+			
+			City c=new City(d[i][0],d[i][1]);
+			cities.add(c);
+			//System.out.printf("%.5f %.5f \n",d[i][0],d[i][1]);
+		}
+		return cities;
+	}
+	
 	public double calc_dist(double x1,double y1,double x2,double y2) {
 		return Math.sqrt(Math.pow((x1-x2),2)+Math.pow((y1-y2),2));
 	}
