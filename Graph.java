@@ -95,7 +95,7 @@ public class Graph {
 		{
 			Path+=Results.get(i)+"\n";
 		}
-		System.out.println(Path);
+		//System.out.println(Path);
 		return Path;
 	}
 	public String getTSPString()
