@@ -33,27 +33,15 @@ public class Graph {
 		int counter = 0;
 		int j = 0, i = 0;
 		double min=Double.MAX_VALUE;
-		List<Integer> visitedNodesList
-			= new ArrayList<>();
-		
-		// Starting from the 0th indexed
-		// city i.e., the first city
+		List<Integer> visitedNodesList= new ArrayList<>();
+
 		visitedNodesList.add(0);
 		int[] route = new int[this.G.length];
-
-		// Traverse the adjacency
-		// matrix this.G[][]
-		while (i < this.G.length
-			&& j < this.G[i].length) {
-
-			// Corner of the Matrix
+		while (i < this.G.length && j < this.G[i].length) {
 			if (counter >= this.G[i].length - 1) {
 				break;
 			}
 
-			// If this path is unvisited then
-			// and if the cost is less then
-			// update the cost
 			if (j != i && !(visitedNodesList.contains(j))) {
 				if (this.G[i][j] < min) {
 					min = this.G[i][j];
@@ -61,9 +49,6 @@ public class Graph {
 				}
 			}
 			j++;
-
-			// Check all paths from the
-			// ith indexed city
 			if (j == this.G[i].length) {
 				sum += min;
 				visitedNodesList.add(route[counter] - 1);
@@ -74,8 +59,6 @@ public class Graph {
 			}
 		}
 
-		// Update the ending city in array
-		// from city which was last visited
 		i = route[counter - 1] - 1;
 
 		for (j = 0; j < this.G.length; j++) {
@@ -89,8 +72,6 @@ public class Graph {
 		}
 		sum += min;
 
-		// Started from the node where
-		// we finished as well.
 
 		for( i=0;i<visitedNodesList.size();i++)
 		{
