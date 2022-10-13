@@ -23,7 +23,6 @@ public class SymmetricDataParse implements DataParse{
         
 		d=new Double[num_nodes][2];
 		
-		
 		for(int i=0;i<num_nodes;i++) {
 			String[] s=data.get(i+7).split(" ",3);
 			d[i][0]=Double.parseDouble(s[1]);
