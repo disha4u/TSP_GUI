@@ -11,8 +11,10 @@ public class Main {
 	   fpath=myObj.nextLine();
 	   
 	   ArrayList<String> data=df.dataFetch(fpath);
-	   if (data.size()==0)
+	   if (data.size()==0) {
+		   myObj.close();
 		   return;
+	   }
 	   String path="";
 	   GUI gui=new GUI();
 	   if (fpath.contains("Symmetric")) {
@@ -28,5 +30,6 @@ public class Main {
 		   path=g.caluculateTSP();
 	   }
 	   gui.displayPath(path);
+	   myObj.close();
    }
 }
