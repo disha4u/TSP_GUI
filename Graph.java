@@ -6,33 +6,36 @@ import java.util.*;
  *@version 1
  */
 public class Graph {
-	   private double[][] G;
-	   private String path="";
-	   /*
-	    *  Creates a Graph Matrix with given length
-	    * @param takes in the size of square Matrix
-	   */
-	   Graph(int val) {
-		   try {
-		   G=new double[val][val];
-		   }
-		   catch(OutOfMemoryError oome){
-			   System.out.println("Input is too large, cannot calculate tsp for it, however cities will be plotted in GUIData/Symmetric_Data/ch71009.tsp");
-		   }
+   private double[][] G;
+   private String path="";
+	   
+   /*
+    *  Creates a Graph Matrix with given length
+    * @param takes in the size of square Matrix
+    */
+   Graph(int val) {
+	   try {
+	   G=new double[val][val];
 	   }
-	   /*
-	    * inputs the value at given position in the matrix
-	    * @param row  the Row number where the value needs to be inserted
-	    * @param column  the Column number where the value needs to be inserted
-	    * @param val the value to be inserted at a given row and column
-	    */
-	   public void addEdge(int row, int column ,double val) {
-		   G[row][column]=val;
+	   catch(OutOfMemoryError oome){
+		   System.out.println("Input is too large, cannot calculate tsp for it, however cities will be plotted in GUIData/Symmetric_Data/ch71009.tsp");
 	   }
-	   /*
-	    * Calculates the Traveling Salesperson Path between the nodes and edges
-	    */
-	public String  caluculateTSP()
+   }
+	   
+   /*
+    * inputs the value at given position in the matrix
+    * @param row  the Row number where the value needs to be inserted
+    * @param column  the Column number where the value needs to be inserted
+    * @param val the value to be inserted at a given row and column
+    */
+   public void addEdge(int row, int column ,double val) {
+	   G[row][column]=val;
+   }
+   
+   /*
+    * Calculates the Traveling Salesperson Path between the nodes and edges
+    */
+    public String  caluculateTSP()
 	{
 		int sum = 0;
 		int counter = 0;
