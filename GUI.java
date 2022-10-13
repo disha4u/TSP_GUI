@@ -1,7 +1,17 @@
 import javax.swing.*;
 import java.util.*;
+
+/*@author Ramachandra Sai
+ *@author Disha Agarawal
+ *@author Harshit 
+ *@version 1
+ */
+
 public class GUI extends JPanel{
-	
+	/*
+	 * Creates object of Points and plot them on canvas
+	 * @param Cities to be plotted
+	 */
 	public void plotPoints(ArrayList<City> cities)
 	{
 		
@@ -13,6 +23,10 @@ public class GUI extends JPanel{
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
+	/*
+	 * Displays String Path in Text Area
+	 * @param path to be Displayed
+	*/
 	public void displayPath(String path)
 	{
 		JPanel p = new JPanel();

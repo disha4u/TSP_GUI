@@ -1,17 +1,31 @@
-
 import java.awt.*;
-
 import java.util.ArrayList;
 import java.awt.geom.*;
 import javax.swing.*;
+
+/*@author Ramachandra Sai
+ *@author Disha Agarawal
+ *@author Harshit 
+ *@version 1
+ */
 public class Points extends JPanel {
 
+	/*
+	 *  Represents the Cities which need to be plotted.
+	*/
 	private ArrayList<City> cities;
+	/*
+	 * adds the cities to Object variables from the parameter
+	 * @param cities the cities for which the plotting needs to be done
+	 */
 	Points(ArrayList<City> cities)
 	{
 		this.cities=cities;
 	}
- 
+ /*
+  * @Override 
+  * Plots the point on the Map.
+  */
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
 

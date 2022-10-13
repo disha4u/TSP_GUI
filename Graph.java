@@ -25,7 +25,7 @@ public class Graph {
 		   G[row][column]=val;
 	   }
 	   /*
-	    * Calculates the Travelling Saleperson Path between the nodes and edges
+	    * Calculates the Traveling Salesperson Path between the nodes and edges
 	    */
 	public String  caluculateTSP()
 	{
@@ -101,7 +101,7 @@ public class Graph {
 		return path;
 	}
 	/*
-	 * @return A String containing the Travelling Salesperson Path 
+	 * @return A String containing the Traveling Salesperson Path 
 	 */
 	public String getTSPString()
 	{

@@ -1,7 +1,16 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/*@author Ramachandra Sai
+ *@author Disha Agarawal
+ *@author Harshit 
+ *@version 1
+ */
 public class Main {
+	
+	/* Takes filepaths from folders Data/Asymmetric and Data/Symmetric and calculates the path for both and plots points for symmetric Data
+	 * @args takes in the path of the file
+	 * 
+	 */
 	
    public static void main(String[] args) {
 	   DataFetch df=new DataFetch();
