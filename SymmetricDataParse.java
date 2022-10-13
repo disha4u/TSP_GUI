@@ -3,11 +3,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
 
+/*@author Ramachandra Sai
+ *@author Disha Agarawal
+ *@author Harshit 
+ *@version 1
+ */
 public class SymmetricDataParse implements DataParse{
 	
 	private Double[][] d;
 	private int num_nodes=0;
 	
+	/*
+	 * Creates graph data structure by parsing the raw data
+	 * @param raw data read from file
+	 * @return graph data structure
+	*/
 	public Graph dataParse(ArrayList<String> data) {
 		String pattern = "[0-9]+";
 		Pattern r = Pattern.compile(pattern);
@@ -37,6 +47,11 @@ public class SymmetricDataParse implements DataParse{
 		return g;	
 	}
 	
+	/*
+	 * Creates a list of cities by parsing the raw data
+	 * @param raw data read from file
+	 * @return list of cities
+	*/
 	public ArrayList<City> dataCities(ArrayList<String> data){
 		ArrayList<City> cities= new ArrayList<City>();
 		

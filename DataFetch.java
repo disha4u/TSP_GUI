@@ -3,8 +3,18 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/*@author Ramachandra Sai
+ *@author Disha Agarawal
+ *@author Harshit 
+ *@version 1
+ */
 public class DataFetch{
 	
+	/*
+	 * Reads file and stores it in a array list
+	 * @param filepath where the file exists
+	 * @return list of lines from the file
+	*/
 	public ArrayList<String> dataFetch(String filePath){
 		ArrayList<String> data = new ArrayList<String>();
 		try {

@@ -2,8 +2,18 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/*@author Ramachandra Sai
+ *@author Disha Agarawal
+ *@author Harshit 
+ *@version 1
+ */
 public class AsymmetricDataParse implements DataParse{
 
+	/*
+	 * Creates graph data structure by parsing the raw data
+	 * @param raw data read from file
+	 * @return graph data structure
+	*/
 	public Graph dataParse(ArrayList<String> data) {
 		
 		String pattern = "[0-9]+";
