@@ -6,9 +6,9 @@ public class Main {
    public static void main(String[] args) {
 	   DataFetch df=new DataFetch();
 	   String fpath="Data/Asymmetric_Data/rbg017.2.tw.txt";
-	   //Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-	   //System.out.println("Enter File Path");
-	   //fpath=myObj.nextLine();
+	   Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+	   System.out.println("Enter File Path");
+	   fpath=myObj.nextLine();
 	   
 	   ArrayList<String> data=df.dataFetch(fpath);
 	   String path="";
