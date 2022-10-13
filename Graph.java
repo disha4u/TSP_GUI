@@ -86,6 +86,7 @@ public class Graph {
 		path+="\n"+"Minimum Cost is : "+sum;
 		return path;
 	}
+	
 	/*
 	 * @return A String containing the Traveling Salesperson Path 
 	 */
@@ -93,6 +94,10 @@ public class Graph {
 	{
 		return this.path;
 	}
+	
+	/*
+	 * @returns graph double
+	 */
     public double[][] getG() {
     	return this.G;
     }
