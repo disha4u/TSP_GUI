@@ -28,10 +28,13 @@ public class AsymmetricDataParse implements DataParse{
 		Graph g=new Graph(num_nodes);
 		
 		Double val=0.0;
-		for(int i=0;i<num_nodes;i++) {
-			String s=data.get(i+num_nodes+8);
+		int i=0,k=0,j=0;
+		while(i<num_nodes) {
+			String s=data.get(k+7);
+			k+=1;
+			//stem.out.println(i);
 			m=r.matcher(s);
-			int j=0;
+			
 			while (m.find()) {
 				
 				val=Double.parseDouble(m.group());
@@ -40,6 +43,12 @@ public class AsymmetricDataParse implements DataParse{
 				}
 				g.addEdge(i, j, val);
 				j+=1;
+				//Data/Asymmetric_Data/br17.atsp.txtstem.out.println(j);
+				if (j==num_nodes) {
+					j=0;
+					i+=1;
+				}
+						
 			}
 			
 		}

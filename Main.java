@@ -19,15 +19,15 @@ public class Main {
 	   Scanner myObj = new Scanner(System.in); 
 	   System.out.println("Enter File Path");
 	   fpath=myObj.nextLine();
-	   
-	   ArrayList<String> data=df.dataFetch(fpath);
+	   ArrayList<String> data=new ArrayList<String>();
+	   Boolean atsp=df.dataFetch(fpath,data);
 	   if (data.size()==0) {
 		   myObj.close();
 		   return;
 	   }
 	   String path="";
 	   GUI gui=new GUI();
-	   if (fpath.contains("Symmetric")) {
+	   if (!atsp) {
 		   SymmetricDataParse dp= new SymmetricDataParse();
 		   Graph g=dp.dataParse(data);
 		   path=g.caluculateTSP();
