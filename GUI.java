@@ -1,13 +1,8 @@
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.util.ArrayList;
+import java.awt.*;
 import java.util.Random;
 import java.awt.geom.*;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
+import javax.swing.*;
+import java.util.*;
 public class GUI extends JPanel{
 	
 	public void PlotPoints(ArrayList<City> cities)
@@ -20,5 +15,19 @@ public class GUI extends JPanel{
 		frame.setSize(250, 200);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+	}
+	public void DisplayPath(String path)
+	{
+		JPanel p = new JPanel();
+		JFrame frame = new JFrame("Path");
+		JTextArea area=new JTextArea(path);
+		area.setBounds(10,30, 200,200);  
+		p.add(area);
+		frame.add(p);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(250, 200);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+
 	}
 }

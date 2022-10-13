@@ -61,7 +61,7 @@ public class Graph {
 				
 				
 				visitedRouteList.add(route[counter] - 1);
-				Results.add("City"+i+" - City"+(route[counter] - 1)+" "+min);
+				Results.add("City"+i+" - City"+(route[counter] - 1));
 				min = Integer.MAX_VALUE;
 				j = 0;
 				i = route[counter] - 1;
@@ -79,7 +79,7 @@ public class Graph {
 				min = this.G[i][j];
 				
 				route[counter] = j + 1;
-				Results.add("City"+i+" - City"+j+" "+min);
+				Results.add("City"+i+" - City"+j);
 				//System.out.println(i+" "+j+" "+min);
 			}
 		}
@@ -87,15 +87,16 @@ public class Graph {
 
 		// Started from the node where
 		// we finished as well.
-		Results.add("Minimum Cost is : "+sum);
+		//Results.add("Minimum Cost is : "+sum);
 		//System.out.print("Minimum Cost is : ");
 		//System.out.println(sum);
 		//String res="";
-		for( i=0;i<Results.size();i++)
+		for( i=0;i<visitedRouteList.size();i++)
 		{
-			Path+=Results.get(i)+"\n";
+			Path+="City"+visitedRouteList.get(i)+"-";
 		}
-		//System.out.println(Path);
+		Path=Path.substring(0,Path.length()-1);
+		Path+="\n"+"Minimum Cost is : "+sum;
 		return Path;
 	}
 	public String getTSPString()

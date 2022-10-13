@@ -11,14 +11,15 @@ public class Main {
 	   //fpath=myObj.nextLine();
 	   
 	   ArrayList<String> data=df.dataFetch(fpath);
-	   String path;
+	   String path="";
+	   GUI gui=new GUI();
 	   if (fpath.contains("Symmetric")) {
-	   SymmetricDataParse dp= new SymmetricDataParse();
+		   SymmetricDataParse dp= new SymmetricDataParse();
 	   Graph g=dp.data_parse(data);
 	   path=g.CaluculateTSP();
 	   ArrayList<City> cities=dp.data_cities(data);
-	   System.out.println(path);
-	   GUI gui=new GUI();
+	   //System.out.println(path);
+	  
 	   gui.PlotPoints(cities);
 	   }
 	   else {
@@ -26,6 +27,7 @@ public class Main {
 		   Graph g=dp.data_parse(data);
 		   path=g.CaluculateTSP();
 	   }
-	   System.out.println(path);
+	   //System.out.println(path);
+	   gui.DisplayPath(path);
    }
 }
