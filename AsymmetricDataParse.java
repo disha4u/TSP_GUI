@@ -38,12 +38,12 @@ public class AsymmetricDataParse implements DataParse{
 			while (m.find()) {
 				
 				val=Double.parseDouble(m.group());
-				if (val<=0 && i!=j) {
+				if (val==9999) {
 					val=Double.MAX_VALUE;
 				}
 				g.addEdge(i, j, val);
 				j+=1;
-				//Data/Asymmetric_Data/br17.atsp.txtstem.out.println(j);
+				
 				if (j==num_nodes) {
 					j=0;
 					i+=1;
