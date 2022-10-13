@@ -77,6 +77,10 @@ public class SymmetricDataParse implements DataParse{
 		return cities;
 	}
 	
+	/*
+	 * Calculated Euclidean distance between 2 cities
+	 * @param x,y coordinates of the 2 cities between which the distance has to calculated
+	 */
 	public double calc_dist(double x1,double y1,double x2,double y2) {
 		return Math.sqrt(Math.pow((x1-x2),2)+Math.pow((y1-y2),2));
 	}

@@ -6,7 +6,6 @@ import java.util.*;
  *@author Harshit 
  *@version 1
  */
-
 public class GUI extends JPanel{
 	/*
 	 * Creates object of Points and plot them on canvas
