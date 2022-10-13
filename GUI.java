@@ -28,13 +28,13 @@ public class GUI extends JPanel  {
 	*/
 	public void displayPath(String path)
 	{
-		JPanel p = new JPanel();
+		JPanel panel = new JPanel();
 		JFrame frame = new JFrame("Path");
 		JTextArea textArea=new JTextArea(path);
 		textArea.setBounds(10,30, 200,200);  
-		p.add(textArea);
+		panel.add(textArea);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportView (p);
+		scrollPane.setViewportView (panel);
 		frame.add(scrollPane);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(250, 200);
