@@ -1,15 +1,32 @@
-
 import java.util.*;
+
+/*@author Ramachandra Sai
+ *@author Disha Agarawal
+ *@author Harshit 
+ *@version 1
+ */
 public class Graph {
 	   private double[][] G;
 	   private String path="";
-	   
+	   /*
+	    *  Creates a Graph Matrix with given length
+	    * @param takes in the size of square Matrix
+	   */
 	   Graph(int val) {
 		   G=new double[val][val];
 	   }
-	   public void addEdge(int i, int j,double val) {
-		   G[i][j]=val;
+	   /*
+	    * inputs the value at given position in the matrix
+	    * @param row  the Row number where the value needs to be inserted
+	    * @param column  the Column number where the value needs to be inserted
+	    * @param val the value to be inserted at a given row and column
+	    */
+	   public void addEdge(int row, int column ,double val) {
+		   G[row][column]=val;
 	   }
+	   /*
+	    * Calculates the Travelling Saleperson Path between the nodes and edges
+	    */
 	public String  caluculateTSP()
 	{
 		int sum = 0;
@@ -83,6 +100,9 @@ public class Graph {
 		path+="\n"+"Minimum Cost is : "+sum;
 		return path;
 	}
+	/*
+	 * @return A String containing the Travelling Salesperson Path 
+	 */
 	public String getTSPString()
 	{
 		return this.path;
