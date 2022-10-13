@@ -1,7 +1,5 @@
-// Java program for the above approach
+
 import java.util.*;
-
-
 public class Graph {
 	   private double[][] G;
 	   private String path="";
@@ -12,8 +10,6 @@ public class Graph {
 	   public void addEdge(int i, int j,double val) {
 		   G[i][j]=val;
 	   }
-	// Function to find the minimum
-	// cost path for all the paths
 	public String  caluculateTSP()
 	{
 		int sum = 0;
