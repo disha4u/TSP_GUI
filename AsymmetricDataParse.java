@@ -5,11 +5,11 @@ import java.util.regex.Pattern;
 public class AsymmetricDataParse implements DataParse{
 
 	public Graph dataParse(ArrayList<String> data) {
+		
 		String pattern = "[0-9]+";
 		Pattern r = Pattern.compile(pattern);
 		String dim_s=data.get(3);
 		Matcher m = r.matcher(dim_s);
-		
 		
 		int num_nodes=0;
 		if (m.find())
@@ -32,13 +32,8 @@ public class AsymmetricDataParse implements DataParse{
 				j+=1;
 			}
 			
-			//System.out.printf("%.5f %.5f \n",d[i][0],d[i][1]);
 		}
 		
-		
-		
-		
 		return g;
-		
 	}
 }

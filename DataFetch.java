@@ -17,7 +17,6 @@ public class DataFetch{
 		      myReader.close();
 		    } catch (FileNotFoundException e) {
 		      System.out.println("File not found in the specified path : "+filePath);
-		      //e.printStackTrace();
 		    }
 		return data;
 	}

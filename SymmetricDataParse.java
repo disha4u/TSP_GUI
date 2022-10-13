@@ -1,13 +1,12 @@
-import java.io.File;  // Import the File class
-import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.util.Scanner; // Import the Scanner class to read text files
+import java.io.File;  
+import java.io.FileNotFoundException;  
+import java.util.Scanner; 
 import java.lang.Math; 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
 
 public class SymmetricDataParse implements DataParse{
-	
 	
 	private Double[][] d;
 	private int num_nodes=0;
@@ -26,11 +25,9 @@ public class SymmetricDataParse implements DataParse{
 		
 		
 		for(int i=0;i<num_nodes;i++) {
-			
 			String[] s=data.get(i+7).split(" ",3);
 			d[i][0]=Double.parseDouble(s[1]);
 			d[i][1]=Double.parseDouble(s[2]);
-			//System.out.printf("%.5f %.5f \n",d[i][0],d[i][1]);
 		}
 		
 		Graph g=new Graph(num_nodes);
@@ -41,8 +38,7 @@ public class SymmetricDataParse implements DataParse{
 				g.addEdge(i, j, dist);
 			}
 		}
-		return g;
-		
+		return g;	
 	}
 	
 	public ArrayList<City> dataCities(ArrayList<String> data){
@@ -52,7 +48,6 @@ public class SymmetricDataParse implements DataParse{
 		Pattern r = Pattern.compile(pattern);
 		String dim_s=data.get(4);
 		Matcher m = r.matcher(dim_s);
-		
 		
 		if (m.find())
 		    num_nodes=Integer.parseInt(m.group(0));
@@ -65,13 +60,8 @@ public class SymmetricDataParse implements DataParse{
 			String[] s=data.get(i+7).split(" ",3);
 			d[i][0]=Double.parseDouble(s[1]);
 			d[i][1]=Double.parseDouble(s[2]);
-			//System.out.printf("%.5f %.5f \n",d[i][0],d[i][1]);
-		
-			
-			
 			City c=new City(d[i][0],d[i][1]);
 			cities.add(c);
-			//System.out.printf("%.5f %.5f \n",d[i][0],d[i][1]);
 		}
 		return cities;
 	}
