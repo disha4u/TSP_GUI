@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Graph {
 	   private double[][] G;
-	   private String Path="";
+	   private String path="";
 	   
 	   Graph(int val) {
 		   G=new double[val][val];
@@ -12,9 +12,6 @@ public class Graph {
 	   public void addEdge(int i, int j,double val) {
 		   G[i][j]=val;
 	   }
-	   
-
-
 	// Function to find the minimum
 	// cost path for all the paths
 	public String  caluculateTSP()
@@ -23,13 +20,12 @@ public class Graph {
 		int counter = 0;
 		int j = 0, i = 0;
 		double min=Double.MAX_VALUE;
-		List<Integer> visitedRouteList
+		List<Integer> visitedNodesList
 			= new ArrayList<>();
-		List<String> Results=new ArrayList<String>();
-
+		
 		// Starting from the 0th indexed
 		// city i.e., the first city
-		visitedRouteList.add(0);
+		visitedNodesList.add(0);
 		int[] route = new int[this.G.length];
 
 		// Traverse the adjacency
@@ -45,8 +41,7 @@ public class Graph {
 			// If this path is unvisited then
 			// and if the cost is less then
 			// update the cost
-			if (j != i
-				&& !(visitedRouteList.contains(j))) {
+			if (j != i && !(visitedNodesList.contains(j))) {
 				if (this.G[i][j] < min) {
 					min = this.G[i][j];
 					route[counter] = j + 1;
@@ -58,11 +53,7 @@ public class Graph {
 			// ith indexed city
 			if (j == this.G[i].length) {
 				sum += min;
-				
-				
-				
-				visitedRouteList.add(route[counter] - 1);
-				Results.add("City"+i+" - City"+(route[counter] - 1));
+				visitedNodesList.add(route[counter] - 1);
 				min = Integer.MAX_VALUE;
 				j = 0;
 				i = route[counter] - 1;
@@ -80,29 +71,25 @@ public class Graph {
 				min = this.G[i][j];
 				
 				route[counter] = j + 1;
-				Results.add("City"+i+" - City"+j);
-				//System.out.println(i+" "+j+" "+min);
+				
 			}
 		}
 		sum += min;
 
 		// Started from the node where
 		// we finished as well.
-		//Results.add("Minimum Cost is : "+sum);
-		//System.out.print("Minimum Cost is : ");
-		//System.out.println(sum);
-		//String res="";
-		for( i=0;i<visitedRouteList.size();i++)
+
+		for( i=0;i<visitedNodesList.size();i++)
 		{
-			Path+="City"+visitedRouteList.get(i)+"-";
+			path+="City"+visitedNodesList.get(i)+"-";
 		}
-		Path=Path.substring(0,Path.length()-1);
-		Path+="\n"+"Minimum Cost is : "+sum;
-		return Path;
+		path=path.substring(0,path.length()-1);
+		path+="\n"+"Minimum Cost is : "+sum;
+		return path;
 	}
 	public String getTSPString()
 	{
-		return this.Path;
+		return this.path;
 	}
 
 

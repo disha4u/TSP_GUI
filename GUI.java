@@ -1,6 +1,3 @@
-import java.awt.*;
-import java.util.Random;
-import java.awt.geom.*;
 import javax.swing.*;
 import java.util.*;
 public class GUI extends JPanel{

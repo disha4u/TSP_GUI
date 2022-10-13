@@ -5,7 +5,7 @@ public class Main {
 	
    public static void main(String[] args) {
 	   DataFetch df=new DataFetch();
-	   String fpath="Data/Asymmetric_Data/rbg017.2.tw.txt";
+	   String fpath="";
 	   Scanner myObj = new Scanner(System.in); 
 	   System.out.println("Enter File Path");
 	   fpath=myObj.nextLine();
@@ -27,6 +27,7 @@ public class Main {
 		   Graph g=adp.dataParse(data);
 		   path=g.caluculateTSP();
 	   }
+	   
 	   gui.displayPath(path);
    }
 }
