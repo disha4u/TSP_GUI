@@ -11,6 +11,8 @@ public class Main {
 	   fpath=myObj.nextLine();
 	   
 	   ArrayList<String> data=df.dataFetch(fpath);
+	   if (data.size()==0)
+		   return;
 	   String path="";
 	   GUI gui=new GUI();
 	   if (fpath.contains("Symmetric")) {

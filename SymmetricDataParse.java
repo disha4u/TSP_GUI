@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class SymmetricDataParse implements DataParse{
 	
 	
-	Double[][] d;
-	int num_nodes=0;
+	private Double[][] d;
+	private int num_nodes=0;
 	
 	public Graph data_parse(ArrayList<String> data) {
 		String pattern = "[0-9]+";

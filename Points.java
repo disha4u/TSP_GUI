@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import java.math.*;
 public class Points extends JPanel {
 
-	ArrayList<City> cities;
+	private ArrayList<City> cities;
 	Points(ArrayList<City> cities)
 	{
 		this.cities=cities;
