@@ -31,11 +31,11 @@ public class GUI extends JPanel  {
 		JPanel p = new JPanel();
 		JFrame frame = new JFrame("Path");
 		JTextArea textArea=new JTextArea(path);
-		textArea.setLineWrap(true);
-		textArea.setWrapStyleWord(true);
 		textArea.setBounds(10,30, 200,200);  
 		p.add(textArea);
-		frame.add(p);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportView (p);
+		frame.add(scrollPane);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(250, 200);
 		frame.setLocationRelativeTo(null);

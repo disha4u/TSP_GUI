@@ -6,36 +6,33 @@ import java.util.*;
  *@version 1
  */
 public class Graph {
-   private double[][] G;
-   private String path="";
-	   
-   /*
-    *  Creates a Graph Matrix with given length
-    * @param takes in the size of square Matrix
-    */
-   Graph(int val) {
-	   try {
-	   G=new double[val][val];
+	   private double[][] G;
+	   private String path="";
+	   /*
+	    *  Creates a Graph Matrix with given length
+	    * @param takes in the size of square Matrix
+	   */
+	   Graph(int val) {
+		   try {
+		   G=new double[val][val];
+		   }
+		   catch(OutOfMemoryError oome){
+			   System.out.println("Input is too large, cannot calculate tsp for it, however cities will be plotted in GUIData/Symmetric_Data/ch71009.tsp");
+		   }
 	   }
-	   catch(OutOfMemoryError oome){
-		   System.out.println("Input is too large, cannot calculate tsp for it, however cities will be plotted in GUIData/Symmetric_Data/ch71009.tsp");
+	   /*
+	    * inputs the value at given position in the matrix
+	    * @param row  the Row number where the value needs to be inserted
+	    * @param column  the Column number where the value needs to be inserted
+	    * @param val the value to be inserted at a given row and column
+	    */
+	   public void addEdge(int row, int column ,double val) {
+		   G[row][column]=val;
 	   }
-   }
-	   
-   /*
-    * inputs the value at given position in the matrix
-    * @param row  the Row number where the value needs to be inserted
-    * @param column  the Column number where the value needs to be inserted
-    * @param val the value to be inserted at a given row and column
-    */
-   public void addEdge(int row, int column ,double val) {
-	   G[row][column]=val;
-   }
-   
-   /*
-    * Calculates the Traveling Salesperson Path between the nodes and edges
-    */
-    public String  caluculateTSP()
+	   /*
+	    * Calculates the Traveling Salesperson Path between the nodes and edges
+	    */
+	public String  caluculateTSP()
 	{
 		int sum = 0;
 		int counter = 0;
@@ -80,10 +77,17 @@ public class Graph {
 		}
 		sum += min;
 
-
+		int pathcount=0;
 		for( i=0;i<visitedNodesList.size();i++)
 		{
 			path+="City"+visitedNodesList.get(i)+"-";
+			if(pathcount==10)
+				{
+				path+="\n";
+				pathcount=0;
+				
+				}
+				pathcount++;
 		}
 		path=path.substring(0,path.length()-1);
 		path+="\n"+"Minimum Cost is : "+sum;
