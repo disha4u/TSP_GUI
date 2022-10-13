@@ -13,7 +13,12 @@ public class Graph {
 	    * @param takes in the size of square Matrix
 	   */
 	   Graph(int val) {
+		   try {
 		   G=new double[val][val];
+		   }
+		   catch(OutOfMemoryError oome){
+			   System.out.println("Input is too large, cannot calculate tsp for it, however cities will be plotted in GUIData/Symmetric_Data/ch71009.tsp");
+		   }
 	   }
 	   /*
 	    * inputs the value at given position in the matrix
@@ -88,7 +93,9 @@ public class Graph {
 	{
 		return this.path;
 	}
-
+    public double[][] getG() {
+    	return this.G;
+    }
 
 }
 

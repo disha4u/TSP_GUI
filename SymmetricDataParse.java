@@ -37,13 +37,15 @@ public class SymmetricDataParse implements DataParse{
 		}
 		
 		Graph g=new Graph(num_nodes);
-		
+		if(g.getG()==null)
+			return null;
+			
 		for(int i=0;i<num_nodes;i++) {
 			for(int j=0;j<num_nodes;j++) {
 				double dist=calc_dist(d[i][0],d[i][1],d[j][0],d[j][1]);
 				g.addEdge(i, j, dist);
 			}
-		}
+	    }
 		return g;	
 	}
 	

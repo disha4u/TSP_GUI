@@ -27,19 +27,25 @@ public class Main {
 	   }
 	   String path="";
 	   GUI gui=new GUI();
+	   Boolean isGnull=true;
 	   if (!atsp) {
 		   SymmetricDataParse dp= new SymmetricDataParse();
 		   Graph g=dp.dataParse(data);
-		   path=g.caluculateTSP();
+		   if (g!=null) {
+			   isGnull=false;
+		       path=g.caluculateTSP();
+		   }
 		   ArrayList<City> cities=dp.dataCities(data);
 		   gui.plotPoints(cities);
 	   }
 	   else {
+		   isGnull=false;
 		   AsymmetricDataParse adp= new AsymmetricDataParse();
 		   Graph g=adp.dataParse(data);
 		   path=g.caluculateTSP();
 	   }
-	   gui.displayPath(path);
+	   if(!isGnull)
+	       gui.displayPath(path);
 	   myObj.close();
    }
 }
