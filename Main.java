@@ -17,19 +17,19 @@ public class Main {
 	   GUI gui=new GUI();
 	   if (fpath.contains("Symmetric")) {
 		   SymmetricDataParse dp= new SymmetricDataParse();
-	   Graph g=dp.data_parse(data);
-	   path=g.CaluculateTSP();
-	   ArrayList<City> cities=dp.data_cities(data);
+	   Graph g=dp.dataParse(data);
+	   path=g.caluculateTSP();
+	   ArrayList<City> cities=dp.dataCities(data);
 	   //System.out.println(path);
 	  
-	   gui.PlotPoints(cities);
+	   gui.plotPoints(cities);
 	   }
 	   else {
 		   AsymmetricDataParse dp= new AsymmetricDataParse();
-		   Graph g=dp.data_parse(data);
-		   path=g.CaluculateTSP();
+		   Graph g=dp.dataParse(data);
+		   path=g.caluculateTSP();
 	   }
 	   //System.out.println(path);
-	   gui.DisplayPath(path);
+	   gui.displayPath(path);
    }
 }

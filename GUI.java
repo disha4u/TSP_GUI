@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.util.*;
 public class GUI extends JPanel{
 	
-	public void PlotPoints(ArrayList<City> cities)
+	public void plotPoints(ArrayList<City> cities)
 	{
 		
 		Points points = new Points(cities);
@@ -16,7 +16,7 @@ public class GUI extends JPanel{
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
-	public void DisplayPath(String path)
+	public void displayPath(String path)
 	{
 		JPanel p = new JPanel();
 		JFrame frame = new JFrame("Path");

@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class AsymmetricDataParse implements DataParse{
 
-	public Graph data_parse(ArrayList<String> data) {
+	public Graph dataParse(ArrayList<String> data) {
 		String pattern = "[0-9]+";
 		Pattern r = Pattern.compile(pattern);
 		String dim_s=data.get(3);
@@ -28,7 +28,7 @@ public class AsymmetricDataParse implements DataParse{
 				if (val<=0 && i!=j) {
 					val=Double.MAX_VALUE;
 				}
-				g.addedge(i, j, val);
+				g.addEdge(i, j, val);
 				j+=1;
 			}
 			

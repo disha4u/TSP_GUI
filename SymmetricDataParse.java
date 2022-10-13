@@ -12,7 +12,7 @@ public class SymmetricDataParse implements DataParse{
 	private Double[][] d;
 	private int num_nodes=0;
 	
-	public Graph data_parse(ArrayList<String> data) {
+	public Graph dataParse(ArrayList<String> data) {
 		String pattern = "[0-9]+";
 		Pattern r = Pattern.compile(pattern);
 		String dim_s=data.get(4);
@@ -38,14 +38,14 @@ public class SymmetricDataParse implements DataParse{
 		for(int i=0;i<num_nodes;i++) {
 			for(int j=0;j<num_nodes;j++) {
 				double dist=calc_dist(d[i][0],d[i][1],d[j][0],d[j][1]);
-				g.addedge(i, j, dist);
+				g.addEdge(i, j, dist);
 			}
 		}
 		return g;
 		
 	}
 	
-	public ArrayList<City> data_cities(ArrayList<String> data){
+	public ArrayList<City> dataCities(ArrayList<String> data){
 		ArrayList<City> cities= new ArrayList<City>();
 		
 		String pattern = "[0-9]+";

@@ -5,10 +5,11 @@ import java.util.*;
 public class Graph {
 	   private double[][] G;
 	   private String Path="";
+	   
 	   Graph(int val) {
 		   G=new double[val][val];
 	   }
-	   public void addedge(int i, int j,double val) {
+	   public void addEdge(int i, int j,double val) {
 		   G[i][j]=val;
 	   }
 	   
@@ -16,7 +17,7 @@ public class Graph {
 
 	// Function to find the minimum
 	// cost path for all the paths
-	public String  CaluculateTSP()
+	public String  caluculateTSP()
 	{
 		int sum = 0;
 		int counter = 0;
